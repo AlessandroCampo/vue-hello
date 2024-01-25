@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>SOCIAL POSTS</title>
+</head>
+
+<body class="bg-[#023047]">
+    <div id="app">
+        <h2 class="text-white text-3xl text-center my-6  "> SOCIAL POSTS </h2>
+        <div v-for="post in posts" class="card bg-slate-50 mx-auto w-1/3 mt-5 p-3 flex flex-col gap-4">
+            <div class="card-info flex gap-5 items-center">
+                <div>
+                    {{checkImage(post)}}
+                </div>
+                <!--  -->
+                <p class="flex flex-col">
+                    <span class="font-bold text-sm"> {{post.author.name}}</span>
+                    <span class="text-xs"> {{post.created}}</span>
+                </p>
+            </div>
+            <p class="text text-xs">
+                {{post.content}}
+            </p>
+            <figure>
+                <img :src=post.media alt="media" srcset="">
+            </figure>
+            <div class="button-container flex justify-around py-3">
+                <div :class="likeClass" class="like text-xs font-bold cursor-pointer" @click="buttonClicked"
+                    :data-index=post.id>
+                    <i class="fa-solid fa-thumbs-up pointer-events-none"></i>
+                    <span class="pointer-events-none"> Mi Piace </span>
+                </div>
+                <div class="text-xs">
+                    Piace a <span class="font-bold like-counter">{{post.likes}}</span> persone
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+
+
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="main.js"></script>
+
+</body>
+
+</html>
