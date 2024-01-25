@@ -16,10 +16,12 @@
         <h2 class="text-white text-3xl text-center my-6  "> SOCIAL POSTS </h2>
         <div v-for="post in posts" class="card bg-slate-50 mx-auto w-1/3 mt-5 p-3 flex flex-col gap-4">
             <div class="card-info flex gap-5 items-center">
-                <div>
-                    {{checkImage(post)}}
+                <div v-if=post.author.image>
+                    <img :src=post.author.image alt="PM" srcset="" class="rounded-full w-[60px] h-[60px]">
                 </div>
-                <!--  -->
+                <div v-else>
+                    <h2>{{}}</h2>
+                </div>
                 <p class="flex flex-col">
                     <span class="font-bold text-sm"> {{post.author.name}}</span>
                     <span class="text-xs"> {{post.created}}</span>
