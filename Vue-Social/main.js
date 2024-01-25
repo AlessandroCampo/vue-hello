@@ -35,7 +35,7 @@ createApp({
                     "media": "https://unsplash.it/600/400?image=234",
                     "author": {
                         "name": "Chiara Passaro",
-                        "image": "https://unsplash.it/300/300?image=20"
+                        "image": null
                     },
                     "likes": 78,
                     "created": "2021-05-15"
@@ -70,10 +70,10 @@ createApp({
                 if (e.target.classList.contains("text-green-700")) this.posts[corrrectIndex].likes++
                 else this.posts[corrrectIndex].likes--
             },
-            checkImage: (post) => {
-                let tag =
-                    post.author.image ? tag = `<img :src=post.author.image alt="PM" srcset="" class="rounded-full w-[60px] h-[60px]">` : tag = "PM"
-                return tag
+            changeName: function (name) {
+                let nameSurname = name.split(" ")
+                let intials = nameSurname[0][0].toUpperCase() + nameSurname[1][0].toUpperCase()
+                return intials
             }
         }
     }

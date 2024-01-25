@@ -20,7 +20,10 @@
                     <img :src=post.author.image alt="PM" srcset="" class="rounded-full w-[60px] h-[60px]">
                 </div>
                 <div v-else>
-                    <h2>{{}}</h2>
+                    <h2
+                        class="bg-[#023047] text-white rounded-full w-[60px] h-[60px] flex items-center justify-center text-2xl">
+                        {{changeName(post.author.name)}}
+                    </h2>
                 </div>
                 <p class="flex flex-col">
                     <span class="font-bold text-sm"> {{post.author.name}}</span>
